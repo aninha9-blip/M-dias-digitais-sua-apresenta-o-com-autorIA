@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mídias digitais — apresentação com autoria</title>
+  <style>
+    :root {
+      --fundo: #101327;
+      --cartao: #191d38;
+      --texto: #f5f6ff;
+      --suave: #b9bfdc;
+      --destaque: #a78bfa;
+      --secundaria: #55e6c1;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 20%, #28204e 0, transparent 35%),
+        radial-gradient(circle at 85% 80%, #123c48 0, transparent 30%),
+        var(--fundo);
+      color: var(--texto);
+      font-family: Arial, sans-serif;
+      display: grid;
+      place-items: center;
+    }
+
+    .apresentacao {
+      width: min(1000px, 92vw);
+      min-height: 600px;
+      padding: 28px;
+    }
+
+    .topo, .controles {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .marca {
+      color: var(--secundaria);
+      font-size: .85rem;
+      font-weight: bold;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .contador { color: var(--suave); font-size: .9rem; }
+
+    .slide {
+      display: none;
+      min-height: 450px;
+      margin: 22px 0;
+      padding: clamp(28px, 6vw, 70px);
+      border: 1px solid #ffffff1c;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #191d38ee, #171a30ee);
+      box-shadow: 0 24px 80px #0005;
+      animation: aparecer .35s ease;
+    }
+
+    .slide.ativo { display: flex; flex-direction: column; justify-content: center; }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .etiqueta {
+      color: var(--secundaria);
+      font-size: .85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    h1, h2 { margin: 14px 0; line-height: 1.08; }
+    h1 { max-width: 750px; font-size: clamp(2.5rem, 7vw, 5rem); }
+    h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+    p, li { color: var(--suave); font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; }
+    .destaque { color: var(--destaque); }
+    ul { padding-left: 1.2em; }
+    li { margin: 10px 0; }
+
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .bloco {
+      padding: 18px;
+      border-radius: 16px;
+      background: #ffffff0b;
+      border: 1px solid #ffffff14;
+    }
+
+    .bloco strong { color: var(--texto); display: block; margin-bottom: 8px; }
+    .bloco span { color: var(--suave); line-height: 1.5; }
+
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      color: #101327;
+      background: var(--secundaria);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover { filter: brightness(1.1); }
+    button:disabled { opacity: .4; cursor: not-allowed; }
+
+    .barra {
+      height: 5px;
+      margin-top: 14px;
+      overflow: hidden;
+      border-radius: 5px;
+      background: #ffffff20;
+    }
+
+    .progresso {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--destaque), var(--secundaria));
+      transition: width .3s ease;
+    }
+
+    @media (max-width: 600px) {
+      .apresentacao { padding: 18px 10px; }
+      .slide { min-height: 500px; padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="apresentacao">
+    <header class="topo">
+      <div class="marca">Projeto • Cultura digital</div>
+      <div class="contador" id="contador">01 / 06</div>
+    </header>
+
+    <section class="slide ativo">
+      <div class="etiqueta">Comunicação, criatividade e responsabilidade</div>
+      <h1>Mídias digitais:<br><span class="destaque">sua apresentação com autoria</span></h1>
+      <p>Como criar e compartilhar conteúdos próprios de forma consciente, criativa e ética.</p>
+      <p><strong>Autor(a):</strong> ____________________ &nbsp; <strong>Turma:</strong> __________</p>
+    </section>
+
+    <section class="slide">
+      <div class="etiqueta">01 • Conceito</div>
+      <h2>O que são mídias digitais?</h2>
+      <p>São meios de comunicação e plataformas que utilizam tecnologias digitais para produzir, publicar e compartilhar informações.</p>
+      <div class="grade">
+        <div class="bloco"><strong>Redes sociais</strong><span>Instagram, TikTok, YouTube e outras plataformas.</span></div>
+        <div class="bloco"><strong>Conteúdo digital</strong><span>Vídeos, podcasts, textos, imagens e infográficos.</span></div>
+        <div class="bloco"><strong>Interatividade</strong><span>Comentários, compartilhamentos e participação do público.</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="etiqueta">02 • Autoria</div>
+      <h2>O que significa criar com autoria?</h2>
+      <p>É produzir uma mensagem que tenha suas ideias, escolhas e objetivos — mesmo quando você utiliza referências de outras pessoas.</p>
+      <ul>
+        <li>Defina o tema e para quem você quer comunicar.</li>
+        <li>Organize as ideias com suas próprias palavras.</li>
+        <li>Escolha formatos que ajudem a transmitir a mensagem.</li>
+        <li>Indique as fontes usadas na pesquisa.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <div class="etiqueta">03 • Produção</div>
+      <h2>Do planejamento à publicação</h2>
+      <div class="grade">
+        <div class="bloco"><strong>1. Planejar</strong><span>Escolha tema, público e objetivo.</span></div>
+        <div class="bloco"><strong>2. Pesquisar</strong><span>Consulte fontes confiáveis e compare informações.</span></div>
+        <div class="bloco"><strong>3. Criar</strong><span>Escreva um roteiro e produza o conteúdo.</span></div>
+        <div class="bloco"><strong>4. Revisar</strong><span>Confira clareza, ortografia, créditos e privacidade.</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="etiqueta">04 • Ética e segurança</div>
+      <h2>Compartilhar também exige cuidado</h2>
+      <ul>
+        <li>Verifique a informação antes de repassá-la.</li>
+        <li>Respeite direitos autorais e dê crédito aos criadores.</li>
+        <li>Peça autorização antes de publicar imagens de outras pessoas.</li>
+        <li>Proteja dados pessoais e mantenha uma comunicação respeitosa.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <div class="etiqueta">Conclusão</div>
+      <h2>Uma mensagem pode fazer a diferença</h2>
+      <p>Usar as mídias digitais com autoria é participar da cultura digital de maneira criativa, crítica e responsável.</p>
+      <p class="destaque"><strong>Pense. Crie. Revise. Compartilhe com responsabilidade.</strong></p>
+      <p><strong>Fontes consultadas:</strong> __________________________________________</p>
+    </section>
+
+    <footer>
+      <div class="controles">
+        <button id="anterior" onclick="mudarSlide(-1)">← Anterior</button>
+        <span class="contador">Use também as setas do teclado</span>
+        <button id="proximo" onclick="mudarSlide(1)">Próximo →</button>
+      </div>
+      <div class="barra"><div class="progresso" id="progresso"></div></div>
+    </footer>
+  </main>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const contador = document.getElementById("contador");
+    const progresso = document.getElementById("progresso");
+    const anterior = document.getElementById("anterior");
+    const proximo = document.getElementById("proximo");
+    let atual = 0;
+
+    function mostrarSlide(indice) {
+      atual = Math.max(0, Math.min(indice, slides.length - 1));
+      slides.forEach((slide, i) => slide.classList.toggle("ativo", i === atual));
+      contador.textContent =
+        String(atual + 1).padStart(2, "0") + " / " +
+        String(slides.length).padStart(2, "0");
+      progresso.style.width = ((atual + 1) / slides.length * 100) + "%";
+      anterior.disabled = atual === 0;
+      proximo.disabled = atual === slides.length - 1;
+    }
+
+    function mudarSlide(direcao) {
+      mostrarSlide(atual + direcao);
+    }
+
+    document.addEventListener("keydown", (evento) => {
+      if (evento.key === "ArrowRight") mudarSlide(1);
+      if (evento.key === "ArrowLeft") mudarSlide(-1);
+    });
+
+    mostrarSlide(0);
+  </script>
+</body>
+</html>
